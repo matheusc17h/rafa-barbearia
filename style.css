@@ -775,7 +775,8 @@ nav a:hover {
 
   /* VIDEO HERO */
 .video-bg {
-  object-position: 75% center;
+  object-fit: cover;
+  object-position: center center; /* Alinha o centro do vídeo ao centro da tela */
 }
 
   /* CONTEUDO */
