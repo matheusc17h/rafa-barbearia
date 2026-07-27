@@ -14,48 +14,48 @@ html {
 body {
   background: #000;
   font-family: Arial, sans-serif;
-  overflow-x: hidden;
 }
 
 /* =======================================
-   STACK EFFECT / POSICIONAMENTO DAS SECTIONS
+   STACK EFFECT (SÓ NAS SECTIONS CERTAS)
 ======================================= */
+
+/* sections por padrão NÃO são sticky */
 section {
   position: relative;
   width: 100%;
 }
 
+/* .inicio,
+.products,
+.about {
+    position: sticky;
+    top: 0;
+} */
+
+/* z-index para sobrepor corretamente */
 .inicio {
   z-index: 1;
-  position: sticky;
-  width: 100%;
 }
 
 .products {
   z-index: 2;
-  background: #111111;
-  border-top: 1px solid rgba(201, 168, 76, 0.3);
-  padding: 60px 40px;
 }
 
 .about {
   z-index: 3;
-  display: flex;
-  align-items: center;
-  gap: 60px;
-  padding: 80px 80px;
-  background: #0d0d0d;
-  border-top: 1px solid rgba(201, 168, 76, 0.3);
 }
 
+/* gallery e location NÃO podem ser sticky */
 .gallery {
   z-index: 4;
   position: relative;
   min-height: auto;
   overflow: visible;
-  background: #111111;
-  padding: 80px 80px;
-  border-top: 1px solid rgba(201, 168, 76, 0.3);
+}
+
+.gallery-item[data-category="navalha"] {
+  display: none;
 }
 
 .location {
@@ -63,21 +63,12 @@ section {
   position: relative;
   min-height: 100vh;
   overflow: visible;
-  display: flex;
-  align-items: center;
-  gap: 40px;
-  padding: 40px 80px;
-  background: #0d0d0d;
-  border-top: 1px solid rgba(201, 168, 76, 0.3);
 }
 
 .footer {
   z-index: 6;
   position: relative;
   overflow: visible;
-  background: #0a0a0a;
-  border-top: 1px solid rgba(201, 168, 76, 0.3);
-  padding: 60px 80px 0;
 }
 
 /* =======================================
@@ -121,8 +112,13 @@ nav a:hover {
 }
 
 /* =======================================
-   SECTION INICIO & HERO VIDEO (DESKTOP)
+   SECTION INICIO
 ======================================= */
+.inicio {
+  position: sticky;
+  width: 100%;
+}
+
 .conteudo {
   position: relative;
   z-index: 1;
@@ -206,9 +202,15 @@ nav a:hover {
 /* =======================================
    SECTION PRODUCTS
 ======================================= */
-.filter-btn.active {
-  background: #d4af37;
-  color: #111;
+.products {
+  background: #111111;
+  border-top: 1px solid rgba(201, 168, 76, 0.3);
+  padding: 60px 40px;
+}
+
+.filter-btn.active{
+    background: #d4af37;
+    color: #111;
 }
 
 .title-products h1 {
@@ -229,6 +231,8 @@ nav a:hover {
     0 0 40px rgba(255, 215, 0, .6);
 }
 
+
+
 .grid-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -245,13 +249,14 @@ nav a:hover {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  transition: .35s;
+ transition: .35s;
+
 }
 
-.grid-item:hover {
-  transform: translateY(-8px);
-  border-color: #d4af37;
-  box-shadow: 0 20px 40px rgba(212,175,55,.25);
+.grid-item:hover{
+    transform: translateY(-8px);
+    border-color: #d4af37;
+    box-shadow: 0 20px 40px rgba(212,175,55,.25);
 }
 
 .grid-item .icon {
@@ -284,6 +289,15 @@ nav a:hover {
 /* =======================================
    SECTION ABOUT
 ======================================= */
+.about {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  padding: 80px 80px;
+  background: #0d0d0d;
+  border-top: 1px solid rgba(201, 168, 76, 0.3);
+}
+
 .about-image {
   flex: 1;
   position: relative;
@@ -397,8 +411,14 @@ nav a:hover {
 }
 
 /* =======================================
-   SECTION GALLERY
+   SECTION GALLERY (SCROLL NORMAL)
 ======================================= */
+.gallery {
+  background: #111111;
+  padding: 80px 80px;
+  border-top: 1px solid rgba(201, 168, 76, 0.3);
+}
+
 .gallery-title {
   text-align: center;
   margin-bottom: 16px;
@@ -456,13 +476,10 @@ nav a:hover {
   overflow: hidden;
   border-radius: 4px;
   aspect-ratio: 1;
+
   opacity: 0;
   transform: translateY(70px);
   transition: opacity 1.2s ease, transform 1.2s ease;
-}
-
-.gallery-item[data-category="navalha"] {
-  display: none;
 }
 
 .gallery-item.show {
@@ -489,6 +506,7 @@ nav a:hover {
   align-items: center;
   justify-content: center;
 }
+
 
 .destaque-content {
   text-align: center;
@@ -522,6 +540,15 @@ nav a:hover {
 /* =======================================
    SECTION LOCATION
 ======================================= */
+.location {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  padding: 40px 80px;
+  background: #0d0d0d;
+  border-top: 1px solid rgba(201, 168, 76, 0.3);
+}
+
 .location-content {
   flex: 1;
   display: flex;
@@ -632,6 +659,12 @@ nav a:hover {
 /* =======================================
    FOOTER
 ======================================= */
+.footer {
+  background: #0a0a0a;
+  border-top: 1px solid rgba(201, 168, 76, 0.3);
+  padding: 60px 80px 0;
+}
+
 .footer-container {
   display: grid;
   grid-template-columns: 2fr 1fr 1fr;
@@ -711,139 +744,16 @@ nav a:hover {
   font-size: 0.85rem;
 }
 
-/* =======================================
-   MODAIS
-======================================= */
-.modal-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.8);
-  z-index: 9999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  backdrop-filter: blur(4px);
-}
-
-.modal-box {
-  background: #111111;
-  border: 1px solid rgba(201, 168, 76, 0.3);
-  border-radius: 12px;
-  padding: 40px;
-  width: 100%;
-  max-width: 420px;
-  position: relative;
-}
-
-.modal-box h2 {
-  color: #c9a84c;
-  font-size: 1.8rem;
-  font-family: 'Oswald', sans-serif;
-  margin-bottom: 6px;
-}
-
-.modal-sub {
-  color: #888;
-  font-size: 0.9rem;
-  margin-bottom: 24px;
-}
-
-.modal-close {
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  background: transparent;
-  border: none;
-  color: #888;
-  font-size: 1.2rem;
-  cursor: pointer;
-  transition: color 0.3s;
-}
-
-.modal-close:hover {
-  color: #c9a84c;
-}
-
-.modal-form {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-.modal-form input,
-.modal-form select {
-  background: #1a1a1a;
-  border: 1px solid rgba(201, 168, 76, 0.2);
-  border-radius: 8px;
-  padding: 12px 16px;
-  color: #ffffff;
-  font-size: 0.95rem;
-  outline: none;
-  transition: border-color 0.3s;
-}
-
-.modal-form input:focus,
-.modal-form select:focus {
-  border-color: #c9a84c;
-}
-
-.modal-form input::placeholder {
-  color: #555;
-}
-
-.modal-form select option {
-  background: #1a1a1a;
-  color: #ffffff;
-}
-
-.modal-form button {
-  background: linear-gradient(90deg, #d4af37, #f6e27f, #b8860b);
-  color: #111;
-  font-weight: 700;
-  font-size: 1rem;
-  padding: 14px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: 0.3s;
-  margin-top: 6px;
-}
-
-.modal-form button:hover {
-  transform: scale(1.02);
-  box-shadow: 0px 0px 20px rgba(212, 175, 55, 0.3);
-}
-
-.modal-troca {
-  color: #888;
-  font-size: 0.9rem;
-  text-align: center;
-  margin-top: 20px;
-}
-
-.modal-troca span {
-  color: #c9a84c;
-  cursor: pointer;
-  font-weight: 600;
-}
-
-.modal-troca span:hover {
-  text-decoration: underline;
-}
-
-.modal-erro {
-  color: #ef4444;
-  font-size: 0.85rem;
-  text-align: center;
-  min-height: 20px;
-}
 
 /* =======================================
    RESPONSIVIDADE MOBILE
 ======================================= */
 @media (max-width: 768px) {
 
-  /* HEADER MOBILE */
+  /* HEADER */
+
+
+  /* HEADER */
   header {
     flex-direction: row;
     justify-content: space-between;
@@ -862,27 +772,13 @@ nav a:hover {
     justify-content: flex-end;
   }
 
-  /* SECTION INICIO MOBILE (TRAVA DE SEGURANÇA) */
-  .inicio {
-    position: relative !important;
-    width: 100vw !important;
-    height: 100vh !important;
-    overflow: hidden !important;
-  }
 
-  /* VÍDEO EMPURRADO PARA A ESQUERDA */
-  .video-bg {
-    position: absolute !important;
-    top: 0 !important;
-    left: 0 !important;
-    width: 160% !important;               /* Dá margem extra pra mover sem barra preta */
-    max-width: none !important;
-    height: 100% !important;
-    object-fit: cover !important;
-    transform: translateX(-35%) !important; /* EMPURRA O VÍDEO PARA A ESQUERDA */
-  }
+  /* VIDEO HERO */
+.video-bg {
+  object-position: 80% center;
+}
 
-  /* CONTEUDO HERO */
+  /* CONTEUDO */
   .conteudo {
     padding-left: 24px;
     padding-right: 24px;
@@ -937,23 +833,22 @@ nav a:hover {
   .gallery {
     padding: 40px 20px;
   }
-
-  .gallery-grid {
+.gallery-grid {
     grid-template-columns: 1fr;
     justify-items: center;
     gap: 16px;
-  }
+}
 
-  .gallery-item {
+.gallery-item {
     width: 100%;
-    max-width: 450px;
-  }
+    max-width: 450px; /* ajuste como preferir */
+}
 
-  .gallery-item img {
+.gallery-item img {
     width: 100%;
     height: auto;
     display: block;
-  }
+}
 
   /* LOCATION */
   .location {
@@ -976,3 +871,8 @@ nav a:hover {
     gap: 32px;
   }
 }
+
+
+
+
+
