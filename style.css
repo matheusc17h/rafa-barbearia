@@ -748,10 +748,10 @@ nav a:hover {
 /* =======================================
    RESPONSIVIDADE MOBILE
 ======================================= */
+/* =======================================
+   RESPONSIVIDADE MOBILE
+======================================= */
 @media (max-width: 768px) {
-
-  /* HEADER */
-
 
   /* HEADER */
   header {
@@ -772,15 +772,30 @@ nav a:hover {
     justify-content: flex-end;
   }
 
+  /* SECTION INICIO MOBILE (Trava tamanho total da tela) */
+  .inicio {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+  }
 
-  /* VIDEO HERO */
-.video-bg {
-  object-fit: cover;
-  object-position: center center; /* Alinha o centro do vídeo ao centro da tela */
-}
+  /* VIDEO HERO MOBILE (Força enquadramento centralizado) */
+  .video-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover !important;
+    object-position: center center !important;
+  }
 
   /* CONTEUDO */
   .conteudo {
+    position: relative;
+    z-index: 2;
+    height: 100%;
     padding-left: 24px;
     padding-right: 24px;
     align-items: flex-start;
@@ -834,22 +849,23 @@ nav a:hover {
   .gallery {
     padding: 40px 20px;
   }
-.gallery-grid {
+
+  .gallery-grid {
     grid-template-columns: 1fr;
     justify-items: center;
     gap: 16px;
-}
+  }
 
-.gallery-item {
+  .gallery-item {
     width: 100%;
-    max-width: 450px; /* ajuste como preferir */
-}
+    max-width: 450px;
+  }
 
-.gallery-item img {
+  .gallery-item img {
     width: 100%;
     height: auto;
     display: block;
-}
+  }
 
   /* LOCATION */
   .location {
@@ -872,133 +888,3 @@ nav a:hover {
     gap: 32px;
   }
 }
-
-
-
-
-
-/* =======================================
-   MODAIS
-======================================= */
-.modal-overlay {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.8);
-  z-index: 9999;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  backdrop-filter: blur(4px);
-}
-
-.modal-box {
-  background: #111111;
-  border: 1px solid rgba(201, 168, 76, 0.3);
-  border-radius: 12px;
-  padding: 40px;
-  width: 100%;
-  max-width: 420px;
-  position: relative;
-}
-
-.modal-box h2 {
-  color: #c9a84c;
-  font-size: 1.8rem;
-  font-family: 'Oswald', sans-serif;
-  margin-bottom: 6px;
-}
-
-.modal-sub {
-  color: #888;
-  font-size: 0.9rem;
-  margin-bottom: 24px;
-}
-
-.modal-close {
-  position: absolute;
-  top: 16px;
-  right: 16px;
-  background: transparent;
-  border: none;
-  color: #888;
-  font-size: 1.2rem;
-  cursor: pointer;
-  transition: color 0.3s;
-}
-
-.modal-close:hover {
-  color: #c9a84c;
-}
-
-.modal-form {
-  display: flex;
-  flex-direction: column;
-  gap: 14px;
-}
-
-.modal-form input,
-.modal-form select {
-  background: #1a1a1a;
-  border: 1px solid rgba(201, 168, 76, 0.2);
-  border-radius: 8px;
-  padding: 12px 16px;
-  color: #ffffff;
-  font-size: 0.95rem;
-  outline: none;
-  transition: border-color 0.3s;
-}
-
-.modal-form input:focus,
-.modal-form select:focus {
-  border-color: #c9a84c;
-}
-
-.modal-form input::placeholder {
-  color: #555;
-}
-
-.modal-form select option {
-  background: #1a1a1a;
-  color: #ffffff;
-}
-
-.modal-form button {
-  background: linear-gradient(90deg, #d4af37, #f6e27f, #b8860b);
-  color: #111;
-  font-weight: 700;
-  font-size: 1rem;
-  padding: 14px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: 0.3s;
-  margin-top: 6px;
-}
-
-.modal-form button:hover {
-  transform: scale(1.02);
-  box-shadow: 0px 0px 20px rgba(212, 175, 55, 0.3);
-}
-
-.modal-troca {
-  color: #888;
-  font-size: 0.9rem;
-  text-align: center;
-  margin-top: 20px;
-}
-
-.modal-troca span {
-  color: #c9a84c;
-  cursor: pointer;
-  font-weight: 600;
-}
-
-.modal-troca span:hover {
-  text-decoration: underline;
-}
-
-.modal-erro {
-  color: #ef4444;
-  font-size: 0.85rem;
-  text-align: center;
-  min-height: 20px;}
