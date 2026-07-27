@@ -751,6 +751,9 @@ nav a:hover {
 /* =======================================
    RESPONSIVIDADE MOBILE
 ======================================= */
+/* =======================================
+   RESPONSIVIDADE MOBILE
+======================================= */
 @media (max-width: 768px) {
 
   /* HEADER */
@@ -772,30 +775,31 @@ nav a:hover {
     justify-content: flex-end;
   }
 
-  /* SECTION INICIO MOBILE (Trava tamanho total da tela) */
+  /* FIX DA SECTION E DO VÍDEO HERO */
   .inicio {
-    position: relative;
-    width: 100vw;
-    height: 100vh;
-    overflow: hidden;
+    position: relative !important;
+    width: 100% !important;
+    height: 100vh !important;
+    overflow: hidden !important;
   }
 
-  /* VIDEO HERO MOBILE (Força enquadramento centralizado) */
   .video-bg {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
     object-fit: cover !important;
-    object-position: center center !important;
+    /* 
+       Ajuste este valor de porcentagem abaixo se precisar:
+       - Valores baixos (20% a 30%): Puxam o foco do vídeo para a Esquerda
+       - Valores altos (70% a 80%): Puxam o foco do vídeo para a Direita
+    */
+    object-position: 25% center !important; 
   }
 
   /* CONTEUDO */
   .conteudo {
-    position: relative;
-    z-index: 2;
-    height: 100%;
     padding-left: 24px;
     padding-right: 24px;
     align-items: flex-start;
