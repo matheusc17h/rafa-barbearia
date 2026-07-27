@@ -774,11 +774,9 @@ nav a:hover {
 
 
   /* VIDEO HERO */
-  .video-bg {
-      
-    object-position: 60% center;
-  
-  }
+.video-bg {
+  object-position: 75% center;
+}
 
   /* CONTEUDO */
   .conteudo {
