@@ -975,6 +975,13 @@ nav a:hover {
     display: block;
   }
 
+   .gallery-item-destaque {
+    aspect-ratio: 1;
+    width: 100%;
+    max-width: 450px;
+  }
+}
+
 
   /* =======================================
      6. LOCATION
