@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DichavaCortess</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Karantina:wght@300;400;700&family=Oswald:wght@200..700&family=Pacifico&family=Permanent+Marker&display=swap"
+        rel="stylesheet">
+    <script src="script.js" defer></script>
+    <link rel="icon" type="image/png" href="img/logo.png">
+</head>
+
+<body>
+
+    <header>
+        <div>
+            <img src="img/logo.png" alt="Logo Dichava Cortess">
+        </div>
+
+        <!-- 1. Checkbox invisível que controla o clique -->
+        <input type="checkbox" id="menu-toggle" class="menu-checkbox">
+
+        <!-- 2. Ícone das 3 barrinhas -->
+        <label for="menu-toggle" class="hamburger-btn">
+            <span></span>
+            <span></span>
+            <span></span>
+        </label>
+
+        <!-- 3. Seu Nav com a classe .nav-menu adicionada -->
+        <nav class="nav-menu">
+            <ul>
+                <li><a href="#" id="btn-inicio">Início</a></li>
+                <li><a href="#" id="btn-servicos">Serviços</a></li>
+                <li><a href="#" id="btn-sobre">Sobre Nós</a></li>
+                <li><a href="#" id="btn-agendamento">Agendamento</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- SECTION INÍCIO -->
+    <section class="inicio" id="inicio">
+        <video autoplay loop muted playsinline class="video-bg">
+            <source src="videos/background-video.mp4" type="video/mp4">
+        </video>
+        <div class="overlay"></div>
+        <div class="conteudo">
+            <div>
+                <h1>Dichava Cortess</h1>
+                <div class="servicesP">
+                    <p>• Barbearia Premium</p>
+                    <p>• Corte</p>
+                    <p>• Barba</p>
+                    <p>• Navalha</p>
+                </div>
+                <a href="https://wa.me/5511984952339?text=Olá!%20Vi%20o%20site%20e%20gostaria%20de%20agendar%20um%20horário."
+                    target="_blank">
+                    <button>Agendar Horário</button>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION PRODUTOS -->
+    <section class="products" id="servicos">
+        <div class="title-products">
+            <h1>Nossos Serviços</h1>
+        </div>
+        <div class="grid-container">
+            <div class="grid-item">
+                <span class="icon">✂️</span>
+                <h2>Corte Clássico</h2>
+                <p>Precisão na tesoura. Acabamento limpo e afiado.</p>
+
+            </div>
+            <div class="grid-item">
+                <span class="icon">🪒</span>
+                <h2>Barba</h2>
+                <p>Modelagem e acabamento perfeito para sua barba.</p>
+
+            </div>
+            <div class="grid-item">
+                <span class="icon">🔥</span>
+                <h2>Navalha</h2>
+                <p>Tratamento com navalha quente para pele sensível.</p>
+
+            </div>
+            <div class="grid-item">
+                <span class="icon">💈</span>
+                <h2>Corte Moderno</h2>
+                <p>Estilo contemporâneo com acabamento de alta qualidade.</p>
+
+            </div>
+            <div class="grid-item">
+                <span class="icon">✨</span>
+                <h2>Design de Cabelo</h2>
+                <p>Transforme seu visual com nosso design personalizado.</p>
+
+            </div>
+            <div class="grid-item">
+                <span class="icon">👑</span>
+                <h2>Tratamento Premium</h2>
+                <p>Experiência completa com produtos de alta linha.</p>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION ABOUT -->
+    <section class="about" id="sobre">
+        <div class="about-image">
+            <img src="img/cliente3.png" alt="Barbeiro">
+        </div>
+        <div class="about-content">
+            <span class="about-tag">Quem somos</span>
+            <h1>DICHAVA<br><span>CORTESS</span></h1>
+            <p>Somos uma barbearia premium localizada no coração de São Paulo. Com mais de 5 anos de experiência,
+                oferecemos cortes precisos, barba modelada e atendimento personalizado para cada cliente.</p>
+            <p>Nosso compromisso é transformar sua visita em uma experiência única — do corte ao acabamento, cada
+                detalhe é tratado com cuidado e profissionalismo.</p>
+            <div class="about-stats">
+                <div class="stat">
+                    <h2>500+</h2>
+                    <p>Clientes atendidos</p>
+                </div>
+                <div class="stat">
+                    <h2>5+</h2>
+                    <p>Anos de experiência</p>
+                </div>
+                <div class="stat">
+                    <h2>100%</h2>
+                    <p>Satisfação garantida</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION GALERIA -->
+    <section class="gallery" id="galeria">
+        <div class="gallery-title">
+            <h1>Nossos Trabalhos <span>✂️</span></h1>
+            <p>Cada corte é uma obra de arte</p>
+        </div>
+
+        <div class="gallery-filters">
+            <button class="filter-btn active" data-filter="todos">Todos</button>
+            <button class="filter-btn" data-filter="corte">Corte</button>
+            <button class="filter-btn" data-filter="barba">Barba</button>
+            <button class="filter-btn" data-filter="navalha">Navalha</button>
+        </div>
+
+        <div class="gallery-grid">
+
+            <div class="gallery-item" data-category="corte">
+                <img src="img/cliente2.png" alt="Corte 1">
+            </div>
+
+            <div class="gallery-item" data-category="corte navalha">
+                <img src="img/cliente5.png" alt="Corte 4">
+            </div>
+
+            <div class="gallery-item" data-category="corte">
+                <img src="img/cliente6.png" alt="Corte 7">
+            </div>
+
+            <div class="gallery-item" data-category="corte barba">
+                <img src="img/cliente4.png" alt="Corte 3">
+            </div>
+
+            <div class="gallery-item gallery-item-destaque">
+                <div class="destaque-content">
+                    <span>✂️</span>
+                    <h3>Agende agora</h3>
+                    <p>Garanta seu horário</p>
+                    <a href="#">Agendar →</a>
+                </div>
+            </div>
+
+            <div class="gallery-item" data-category="barba">
+                <img src="img/barba1.png" alt="Barba 1">
+            </div>
+
+
+
+            <div class="gallery-item" data-category="navalha">
+                <img src="img/alemao.png" alt="Navalha 1">
+            </div>
+
+            <div class="gallery-item" data-category="corte">
+                <img src="img/cliente7.png" alt="Corte 2">
+            </div>
+
+            <div class="gallery-item" data-category="corte">
+                <img src="img/cliente1.png" alt="Corte 5">
+            </div>
+
+            <div class="gallery-item" data-category="navalha">
+                <img src="img/navalhado 01.png" alt="Navalha 1">
+            </div>
+
+            <div class="gallery-item" data-category="navalha">
+                <img src="img/navalhado 02.png" alt="Navalha 1">
+            </div>
+
+            <div class="gallery-item" data-category="navalha barba">
+                <img src="img/navalhado 03.png" alt="Navalha 1">
+            </div>
+
+        </div>
+    </section>
+
+    <!-- SECTION LOCALIZAÇÃO -->
+    <section class="location">
+
+
+
+        <div class="location-map">
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3476.933256085303!2d-46.84907242489197!3d-23.535224878817843!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94cf01b826479ff1%3A0x2857bcf0c905643a!2sR.%20Trieste%2C%2020%20-%20Parque%20Sampaio%20Viana%2C%20Carapicu%C3%ADba%20-%20SP%2C%2006395-430!5e1!3m2!1spt-BR!2sbr!4v1785679589610!5m2!1spt-BR!2sbr"
+                 style="border:0;" allowfullscreen="" loading="lazy"
+                referrerpolicy="strict-origin-when-cross-origin"></iframe>
+        </div>
+        <div class="location-content">
+            <span class="location-tag">Visite-nos</span>
+            <h1>LOCALIZAÇÃO<br><span>& CONTATO</span></h1>
+            <div class="location-infos">
+                <div class="location-item">
+                    <div class="location-icon">📍</div>
+                    <div>
+                        <p class="label">ENDEREÇO</p>
+                        <p class="value">Rua Trieste 20B, Paque Sampaio Viana – Carapicuíba, SP</p>
+                    </div>
+                </div>
+                <div class="location-item">
+                    <div class="location-icon">🕐</div>
+                    <div>
+                        <p class="label">HORÁRIO</p>
+                        <p class="value">Segunda a Sábado: 9:00 - 20:00</p>
+                    </div>
+                </div>
+                <div class="location-item">
+                    <div class="location-icon">📱</div>
+                    <div>
+                        <p class="label">TELEFONE / WHATSAPP</p>
+                        <p class="value">(11) 98495-2339</p>
+                    </div>
+                </div>
+            </div>
+            <div class="location-social">
+                <a href="#" class="social-btn">📷</a>
+                <a href="#" class="social-btn">💬</a>
+            </div>
+
+            <a href="https://wa.me/5511984952339?text=Olá!%20Vi%20o%20site%20e%20gostaria%20de%20agendar%20um%20horário."
+                target="_blank" class="location-cta">
+                💬 AGENDAR PELO WHATSAPP
+            </a>
+            </div>
+        
+        
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <img src="img/logo.png" alt="Dichava Cortess" class="footer-logo">
+                <p>Barbearia premium em Carapicuíba. Corte, barba e navalha com excelência e estilo.</p>
+                <div class="footer-social">
+                    <a href="#">📷</a>
+                    <a href="#">💬</a>
+                    <a href="#">🎵</a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>Links</h4>
+                <ul>
+                    <li><a href="#inicio">Início</a></li>
+                    <li><a href="#servicos">Serviços</a></li>
+                    <li><a href="#sobre">Sobre Nós</a></li>
+                    <li><a href="#agendamento">Agendamento</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4>Contato</h4>
+                <ul>
+                    <li>📍Rua Trieste 20B, Paque Sampaio Viana – Carapicuíba, SP</li>
+                    <li>📱 (11) 98495-2339</li>
+                    <li>📷 @dichavacortess</li>
+                    <li>✉️ contato@dichavacortess.com</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 Dichava Cortess. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+
+
+
+
+
+
+</body>
+
+</html>
