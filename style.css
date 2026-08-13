@@ -528,7 +528,7 @@ nav a:hover {
 .location {
   display: flex;
   align-items: center;
-  padding: 0;
+   padding: 0px 20px;
   /* Remove os paddings para colar nas bordas e dar 50% exato */
   background: #0d0d0d;
   border-top: 1px solid rgba(201, 168, 76, 0.3);
@@ -553,6 +553,7 @@ nav a:hover {
   height: 100%;
   border: 0;
   display: block;
+   
 }
 
 .location-content {
@@ -578,6 +579,7 @@ nav a:hover {
   overflow: hidden;
   border: 1px solid rgba(201, 168, 76, 0.3);
   min-width: 0;
+ 
 }
 
 
