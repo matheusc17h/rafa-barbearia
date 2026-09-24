@@ -1,0 +1,10 @@
+# Página do Instagram salva pelo navegador (não é usada pelo site)
+videos/(2) Instagram.html
+videos/(2) Instagram_files/
+
+# Backup local da v1 (a v1 fica no histórico do Git)
+_v1-backup/
+
+# Vídeos que o site não usa
+videos/Comb_and_scissors_202603291828.mp4
+videos/Scissors_and_comb_floating_and_202607061249.mp4
