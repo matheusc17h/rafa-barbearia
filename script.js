@@ -232,7 +232,8 @@
 
   mm.add("(prefers-reduced-motion: no-preference)", () => {
     // ---------- 1. HERO: uma entrada só, orquestrada ----------
-    // Título, fotos e selo chegam juntos à posição final.
+    // As letras sobem enquanto os recortes de foto abrem a partir do nome:
+    // o de cima cresce pra direita, o de baixo pra esquerda.
     const fontsReady = Promise.race([
       document.fonts ? document.fonts.ready : Promise.resolve(),
       new Promise((r) => setTimeout(r, 1500)),
@@ -245,75 +246,23 @@
         ? (split = SplitText.create(lines, { type: "chars", mask: "chars" })).chars
         : lines;
 
-      const tl = gsap.timeline({ defaults: { ease: "expo.out", duration: 1.2 } });
+      const tl = gsap.timeline({ defaults: { ease: "expo.out", duration: 1.1 } });
 
-      tl.set(".hero__photo", { clipPath: "inset(100% 0% 0% 0%)" })
-        .set(".hero__photo img", { scale: 1.3 })
-        .set(".hero__stamp", { scale: 0, rotation: -40 })
-        .set(".hero__eyebrow, .hero__services, .hero__actions, .status", { autoAlpha: 0, y: 16 })
+      tl.set(".hero__cut", { clipPath: (i) => (i ? "inset(0% 0% 0% 100%)" : "inset(0% 100% 0% 0%)") })
+        .set(".hero__cut img", { scale: 1.25 })
+        .set(".hero__meta, .hero__foot", { autoAlpha: 0, y: 16 })
         .set(chars, { yPercent: 110 })
         .add(reveal)
-        .to(chars, { yPercent: 0, stagger: 0.035 }, 0.1)
-        .to(".hero__photo", { clipPath: "inset(0% 0% 0% 0%)", stagger: 0.12 }, 0.1)
-        .to(".hero__photo img", { scale: 1, duration: 1.6, stagger: 0.12 }, 0.1)
-        .to(".hero__stamp", { scale: 1, rotation: 0, duration: 1 }, 0.55)
-        .to(".hero__eyebrow, .hero__services, .hero__actions, .status", { autoAlpha: 1, y: 0, duration: 0.8, stagger: 0.08 }, 0.5)
-        .add(() => gsap.set(".hero__photo", { clearProps: "clipPath" }));
+        .to(chars, { yPercent: 0, stagger: 0.03 }, 0.1)
+        .to(".hero__cut", { clipPath: "inset(0% 0% 0% 0%)", stagger: 0.12 }, 0.35)
+        .to(".hero__cut img", { scale: 1, duration: 1.4, stagger: 0.12 }, 0.35)
+        .to(".hero__meta, .hero__foot", { autoAlpha: 1, y: 0, duration: 0.7, stagger: 0.08 }, 0.55)
+        .add(() => gsap.set(".hero__cut", { clearProps: "clipPath" }));
 
       ScrollTrigger.refresh();
     });
 
-    // ---------- 2. HERO: parallax em 5 profundidades ----------
-    // Camadas mais "longe" (padrão, texto) ficam pra trás; as mais perto
-    // (foto menor, selo) passam na frente — dá volume ao cenário.
-    const heroLayers = gsap.utils.toArray(".hero [data-depth]");
-    heroLayers.forEach((el) => {
-      const depth = parseFloat(el.dataset.depth);
-      gsap.to(el, {
-        y: (0.5 - depth) * 320,
-        ease: "none",
-        scrollTrigger: { trigger: ".hero", start: "top top", end: "bottom top", scrub: 0.6 },
-      });
-    });
-
-    // Mouse (só em ponteiro fino): as mesmas camadas reagem ao cursor
-    // na proporção da profundidade. No touch, o scroll acima já faz esse papel.
-    let removePointer = () => {};
-    if (finePointer.matches) {
-      const hero = document.querySelector(".hero");
-      const movers = heroLayers.map((el) => ({
-        depth: parseFloat(el.dataset.depth),
-        // x/yPercent pro mouse; `y` fica reservado pro scroll — o GSAP compõe os dois
-        x: gsap.quickTo(el, "x", { duration: 0.8, ease: "power3.out" }),
-        y: gsap.quickTo(el, "yPercent", { duration: 0.8, ease: "power3.out" }),
-      }));
-      const onMove = (e) => {
-        const nx = e.clientX / window.innerWidth - 0.5;
-        const ny = e.clientY / window.innerHeight - 0.5;
-        movers.forEach((m) => {
-          m.x(nx * m.depth * -28);
-          m.y(ny * m.depth * -4);
-        });
-      };
-      hero.addEventListener("pointermove", onMove);
-      removePointer = () => hero.removeEventListener("pointermove", onMove);
-    }
-
-    // ---------- 3. SOBRE: composição em camadas ----------
-    gsap.utils.toArray(".about__media [data-speed]").forEach((el) => {
-      const speed = parseFloat(el.dataset.speed);
-      gsap.fromTo(
-        el,
-        { y: (speed - 0.5) * 140 },
-        {
-          y: (0.5 - speed) * 140,
-          ease: "none",
-          scrollTrigger: { trigger: ".about__media", start: "top bottom", end: "bottom top", scrub: 0.6 },
-        }
-      );
-    });
-
-    // ---------- 4. CTA: fundo mais lento que o texto ----------
+    // ---------- 2. CTA: fundo mais lento que o texto ----------
     gsap.fromTo(
       ".cta-band__bg",
       { yPercent: -8 },
@@ -324,7 +273,7 @@
       }
     );
 
-    // ---------- 5. Reveals discretos (uma vez só) ----------
+    // ---------- 3. Reveals discretos (uma vez só) ----------
     gsap.utils.toArray("[data-reveal]").forEach((el) => {
       gsap.from(el, {
         autoAlpha: 0,
@@ -335,37 +284,58 @@
       });
     });
 
-    // ---------- 5b. Serviços: cada card entra ao aparecer na tela ----------
-    // Descendo, o card sobe; subindo, volta e some. Só transform + opacidade
-    // (compositor da GPU) e um tween por card, pra não derrubar o FPS.
-    gsap.utils.toArray("[data-reveal-item]").forEach((card) => {
-      gsap.from(card, {
+    // ---------- 4. Serviços: cada linha entra ao aparecer na tela ----------
+    // Descendo, a linha sobe; subindo, volta e some. Só transform + opacidade
+    // (compositor da GPU) e um tween por linha, pra não derrubar o FPS.
+    gsap.utils.toArray("[data-reveal-item]").forEach((item) => {
+      gsap.from(item, {
         autoAlpha: 0,
         y: 48,
         duration: 0.45,
         ease: "power3.out",
         force3D: true,
-        scrollTrigger: { trigger: card, start: "top 82%", toggleActions: "play none none reverse" },
+        scrollTrigger: { trigger: item, start: "top 82%", toggleActions: "play none none reverse" },
       });
     });
 
-    // ---------- 6. Números contando (comunica volume, uma vez) ----------
-    document.querySelectorAll("[data-count]").forEach((el) => {
-      const target = Number(el.dataset.count);
-      const suffix = el.dataset.suffix || "";
-      const counter = { val: 0 };
-      el.textContent = `0${suffix}`;
-      gsap.to(counter, {
-        val: target,
-        duration: 1.6,
-        ease: "power2.out",
-        scrollTrigger: { trigger: el, start: "top 90%", once: true },
-        onUpdate: () => { el.textContent = `${Math.round(counter.val)}${suffix}`; },
+    // ---------- 5. Serviços: foto do corte segue o cursor ----------
+    // O momento de interação da página: passar o mouse na tabela mostra
+    // o trabalho de cada serviço. Só em ponteiro fino — no touch não existe.
+    const menu = document.querySelector(".menu");
+    const preview = document.querySelector(".menu-preview");
+    let removePreview = () => {};
+
+    if (menu && preview && finePointer.matches) {
+      const previewImg = preview.querySelector("img");
+      const moveX = gsap.quickTo(preview, "x", { duration: 0.45, ease: "power3.out" });
+      const moveY = gsap.quickTo(preview, "y", { duration: 0.45, ease: "power3.out" });
+
+      const onMove = (e) => { moveX(e.clientX); moveY(e.clientY); };
+      const onEnter = (e) => {
+        gsap.set(preview, { x: e.clientX, y: e.clientY });
+        gsap.to(preview, { autoAlpha: 1, scale: 1, duration: 0.25, ease: "power3.out", overwrite: "auto" });
+      };
+      const onLeave = () =>
+        gsap.to(preview, { autoAlpha: 0, scale: 0.9, duration: 0.2, ease: "power2.in", overwrite: "auto" });
+
+      gsap.set(preview, { scale: 0.9 });
+      menu.querySelectorAll("[data-preview]").forEach((item) => {
+        const src = item.dataset.preview;
+        new Image().src = src; // pré-carrega pra troca não piscar
+        item.addEventListener("pointerenter", () => { previewImg.src = src; });
       });
-    });
+      menu.addEventListener("pointermove", onMove);
+      menu.addEventListener("pointerenter", onEnter);
+      menu.addEventListener("pointerleave", onLeave);
+      removePreview = () => {
+        menu.removeEventListener("pointermove", onMove);
+        menu.removeEventListener("pointerenter", onEnter);
+        menu.removeEventListener("pointerleave", onLeave);
+      };
+    }
 
     return () => {
-      removePointer();
+      removePreview();
       if (split) split.revert();
     };
   });

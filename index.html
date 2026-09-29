@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dichava Cortess · Barbearia Premium em Carapicuíba</title>
-    <meta name="description" content="Barbearia premium em Carapicuíba. Corte, barba e navalha com excelência e estilo.">
+    <title>Dichava Cortess · Barbearia em Carapicuíba</title>
+    <meta name="description" content="Barbearia no Parque Sampaio Viana, Carapicuíba. Degradê, barba e navalha. Agende pelo WhatsApp.">
     <meta name="theme-color" content="#0D0C0A">
 
     <link rel="icon" type="image/png" sizes="64x64" href="img/favicon-64.png">
@@ -13,7 +13,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 
     <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js" defer></script>
@@ -39,16 +39,16 @@
                 <ul class="nav__list" role="list">
                     <li><a href="#inicio">Início</a></li>
                     <li><a href="#servicos">Serviços</a></li>
-                    <li><a href="#sobre">Sobre Nós</a></li>
-                    <li><a href="#galeria">Galeria</a></li>
-                    <li><a href="#agendamento">Agendamento</a></li>
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#galeria">Trabalhos</a></li>
+                    <li><a href="#agendamento">Onde fica</a></li>
                 </ul>
             </nav>
 
             <a class="btn btn--primary site-header__cta"
                 href="https://wa.me/5511984952339?text=Olá!%20Vi%20o%20site%20e%20gostaria%20de%20agendar%20um%20horário."
                 target="_blank" rel="noopener">
-                Agendar Horário
+                Agendar
             </a>
 
             <button class="menu-toggle" type="button" aria-controls="nav" aria-expanded="false" aria-label="Abrir menu">
@@ -62,49 +62,41 @@
 
         <!-- HERO / INÍCIO -->
         <section class="hero" id="inicio" aria-labelledby="hero-title">
-            <div class="hero__pattern" data-depth="0.15" aria-hidden="true"></div>
-            <div class="hero__spot" aria-hidden="true"></div>
+            <div class="container hero__inner">
+                <div class="hero__meta">
+                    <span>Rua Trieste, 20B · Carapicuíba/SP</span>
+                    <p class="status" data-status>
+                        <span class="status__dot" aria-hidden="true"></span>
+                        <span class="status__label" data-status-label></span>
+                        <span class="status__hours">Seg a Sáb · 9h às 20h</span>
+                    </p>
+                </div>
 
-            <div class="container hero__grid">
-                <div class="hero__copy" data-depth="0.25">
-                    <p class="eyebrow hero__eyebrow">Barbearia Premium</p>
-                    <h1 class="hero__title" id="hero-title">
+                <h1 class="hero__title" id="hero-title">
+                    <span class="hero__row">
                         <span class="hero__line">Dichava</span>
+                        <span class="hero__cut photo" aria-hidden="true">
+                            <img src="img/webp/cliente2.webp" alt="" width="665" height="846" fetchpriority="high">
+                        </span>
+                    </span>
+                    <span class="hero__row hero__row--end">
+                        <span class="hero__cut photo" aria-hidden="true">
+                            <img src="img/webp/cliente6.webp" alt="" width="838" height="836">
+                        </span>
                         <span class="hero__line hero__line--accent">Cortess</span>
-                    </h1>
-                    <ul class="hero__services" role="list" aria-label="Especialidades">
-                        <li>Corte</li>
-                        <li>Barba</li>
-                        <li>Navalha</li>
-                    </ul>
+                    </span>
+                </h1>
+
+                <div class="hero__foot">
+                    <p class="hero__lede">Degradê, navalha e barba na régua. Você mostra a referência, a gente entrega o corte.</p>
                     <div class="hero__actions">
                         <a class="btn btn--primary btn--lg"
                             href="https://wa.me/5511984952339?text=Olá!%20Vi%20o%20site%20e%20gostaria%20de%20agendar%20um%20horário."
                             target="_blank" rel="noopener">
                             <i data-lucide="message-circle" aria-hidden="true"></i>
-                            Agendar Horário
+                            Agendar no WhatsApp
                         </a>
-                        <a class="btn btn--ghost btn--lg" href="#galeria">Nossos Trabalhos</a>
-                    </div>
-                    <p class="status" data-status>
-                        <span class="status__dot" aria-hidden="true"></span>
-                        <span class="status__label" data-status-label></span>
-                        <span class="status__hours">Segunda a Sábado: 9:00 - 20:00</span>
-                    </p>
-                </div>
-
-                <div class="hero__media">
-                    <figure class="photo hero__photo hero__photo--main" data-depth="0.4">
-                        <img src="img/webp/cliente2.webp" alt="Degradê na nuca finalizado com pente, visto de perfil"
-                            width="665" height="846" fetchpriority="high">
-                    </figure>
-                    <figure class="photo hero__photo hero__photo--sub" data-depth="0.75">
-                        <img src="img/webp/cliente6.webp" alt="Corte com risco desenhado na lateral" width="838"
-                            height="836">
-                    </figure>
-                    <div class="stamp hero__stamp" data-depth="0.6" aria-hidden="true">
-                        <strong>5+</strong>
-                        <span>Anos de experiência</span>
+                        <a class="link-arrow" href="#galeria">Ver os cortes <i data-lucide="arrow-down" aria-hidden="true"></i></a>
                     </div>
                 </div>
             </div>
@@ -115,121 +107,110 @@
         <!-- SERVIÇOS -->
         <section class="section services" id="servicos" aria-labelledby="servicos-title">
             <div class="container stack-lg">
-                <header class="section-head" data-reveal>
-                    <p class="eyebrow">Corte · Barba · Navalha</p>
-                    <h2 class="section-title" id="servicos-title">Nossos Serviços</h2>
+                <header class="section-head section-head--split" data-reveal>
+                    <h2 class="section-title" id="servicos-title">O que<br>a gente faz</h2>
+                    <p class="section-note">Toca no serviço e a mensagem já vai pronta pro WhatsApp.</p>
                 </header>
 
-                <ul class="services__grid" role="list">
-                    <li class="service-card" data-reveal-item>
-                        <div class="service-card__top">
-                            <span class="service-card__icon"><i data-lucide="scissors" aria-hidden="true"></i></span>
-                            <span class="service-card__num" aria-hidden="true">01</span>
-                        </div>
-                        <h3>Corte Clássico</h3>
-                        <p>Precisão na tesoura. Acabamento limpo e afiado.</p>
-                        <a class="service-card__link"
+                <ol class="menu" role="list">
+                    <li class="menu__item" data-reveal-item data-preview="img/webp/cliente4.webp">
+                        <a class="menu__link"
                             href="https://wa.me/5511984952339?text=Olá!%20Vi%20o%20site%20e%20gostaria%20de%20agendar%20um%20horário.%20Serviço:%20Corte%20Clássico"
-                            target="_blank" rel="noopener">Agendar<span class="sr-only"> Corte Clássico</span> <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+                            target="_blank" rel="noopener">
+                            <span class="menu__num" aria-hidden="true">01</span>
+                            <span class="menu__name">Corte clássico</span>
+                            <span class="menu__desc">Tesoura e máquina, contorno limpo e pezinho alinhado.</span>
+                            <span class="menu__cta">Agendar <i data-lucide="arrow-up-right" aria-hidden="true"></i></span>
+                        </a>
                     </li>
-                    <li class="service-card" data-reveal-item>
-                        <div class="service-card__top">
-                            <span class="service-card__icon"><i data-lucide="brush" aria-hidden="true"></i></span>
-                            <span class="service-card__num" aria-hidden="true">02</span>
-                        </div>
-                        <h3>Barba</h3>
-                        <p>Modelagem e acabamento perfeito para sua barba.</p>
-                        <a class="service-card__link"
+                    <li class="menu__item" data-reveal-item data-preview="img/webp/barba1.webp">
+                        <a class="menu__link"
                             href="https://wa.me/5511984952339?text=Olá!%20Vi%20o%20site%20e%20gostaria%20de%20agendar%20um%20horário.%20Serviço:%20Barba"
-                            target="_blank" rel="noopener">Agendar<span class="sr-only"> Barba</span> <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+                            target="_blank" rel="noopener">
+                            <span class="menu__num" aria-hidden="true">02</span>
+                            <span class="menu__name">Barba</span>
+                            <span class="menu__desc">Desenhada e alinhada no formato que combina com o seu rosto.</span>
+                            <span class="menu__cta">Agendar <i data-lucide="arrow-up-right" aria-hidden="true"></i></span>
+                        </a>
                     </li>
-                    <li class="service-card" data-reveal-item>
-                        <div class="service-card__top">
-                            <span class="service-card__icon"><i data-lucide="flame" aria-hidden="true"></i></span>
-                            <span class="service-card__num" aria-hidden="true">03</span>
-                        </div>
-                        <h3>Navalha</h3>
-                        <p>Tratamento com navalha quente para pele sensível.</p>
-                        <a class="service-card__link"
+                    <li class="menu__item" data-reveal-item data-preview="img/webp/navalhado-01.webp">
+                        <a class="menu__link"
                             href="https://wa.me/5511984952339?text=Olá!%20Vi%20o%20site%20e%20gostaria%20de%20agendar%20um%20horário.%20Serviço:%20Navalha"
-                            target="_blank" rel="noopener">Agendar<span class="sr-only"> Navalha</span> <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+                            target="_blank" rel="noopener">
+                            <span class="menu__num" aria-hidden="true">03</span>
+                            <span class="menu__name">Navalha</span>
+                            <span class="menu__desc">Acabamento com navalha quente, com cuidado pra pele sensível.</span>
+                            <span class="menu__cta">Agendar <i data-lucide="arrow-up-right" aria-hidden="true"></i></span>
+                        </a>
                     </li>
-                    <li class="service-card" data-reveal-item>
-                        <div class="service-card__top">
-                            <span class="service-card__icon"><i data-lucide="scissors-line-dashed" aria-hidden="true"></i></span>
-                            <span class="service-card__num" aria-hidden="true">04</span>
-                        </div>
-                        <h3>Corte Moderno</h3>
-                        <p>Estilo contemporâneo com acabamento de alta qualidade.</p>
-                        <a class="service-card__link"
+                    <li class="menu__item" data-reveal-item data-preview="img/webp/cliente7.webp">
+                        <a class="menu__link"
                             href="https://wa.me/5511984952339?text=Olá!%20Vi%20o%20site%20e%20gostaria%20de%20agendar%20um%20horário.%20Serviço:%20Corte%20Moderno"
-                            target="_blank" rel="noopener">Agendar<span class="sr-only"> Corte Moderno</span> <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+                            target="_blank" rel="noopener">
+                            <span class="menu__num" aria-hidden="true">04</span>
+                            <span class="menu__name">Corte moderno</span>
+                            <span class="menu__desc">Low, mid ou high fade. Traz a foto de referência que a gente reproduz.</span>
+                            <span class="menu__cta">Agendar <i data-lucide="arrow-up-right" aria-hidden="true"></i></span>
+                        </a>
                     </li>
-                    <li class="service-card" data-reveal-item>
-                        <div class="service-card__top">
-                            <span class="service-card__icon"><i data-lucide="pen-tool" aria-hidden="true"></i></span>
-                            <span class="service-card__num" aria-hidden="true">05</span>
-                        </div>
-                        <h3>Design de Cabelo</h3>
-                        <p>Transforme seu visual com nosso design personalizado.</p>
-                        <a class="service-card__link"
+                    <li class="menu__item" data-reveal-item data-preview="img/webp/cliente6.webp">
+                        <a class="menu__link"
                             href="https://wa.me/5511984952339?text=Olá!%20Vi%20o%20site%20e%20gostaria%20de%20agendar%20um%20horário.%20Serviço:%20Design%20de%20Cabelo"
-                            target="_blank" rel="noopener">Agendar<span class="sr-only"> Design de Cabelo</span> <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+                            target="_blank" rel="noopener">
+                            <span class="menu__num" aria-hidden="true">05</span>
+                            <span class="menu__name">Design de cabelo</span>
+                            <span class="menu__desc">Risco e desenho na lateral, feitos à mão livre.</span>
+                            <span class="menu__cta">Agendar <i data-lucide="arrow-up-right" aria-hidden="true"></i></span>
+                        </a>
                     </li>
-                    <li class="service-card" data-reveal-item>
-                        <div class="service-card__top">
-                            <span class="service-card__icon"><i data-lucide="crown" aria-hidden="true"></i></span>
-                            <span class="service-card__num" aria-hidden="true">06</span>
-                        </div>
-                        <h3>Tratamento Premium</h3>
-                        <p>Experiência completa com produtos de alta linha.</p>
-                        <a class="service-card__link"
+                    <li class="menu__item" data-reveal-item data-preview="img/webp/navalhado-03.webp">
+                        <a class="menu__link"
                             href="https://wa.me/5511984952339?text=Olá!%20Vi%20o%20site%20e%20gostaria%20de%20agendar%20um%20horário.%20Serviço:%20Tratamento%20Premium"
-                            target="_blank" rel="noopener">Agendar<span class="sr-only"> Tratamento Premium</span> <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
+                            target="_blank" rel="noopener">
+                            <span class="menu__num" aria-hidden="true">06</span>
+                            <span class="menu__name">Tratamento premium</span>
+                            <span class="menu__desc">Corte, barba e acabamento completo, com produto de linha profissional.</span>
+                            <span class="menu__cta">Agendar <i data-lucide="arrow-up-right" aria-hidden="true"></i></span>
+                        </a>
                     </li>
-                </ul>
+                </ol>
             </div>
+            <div class="menu-preview" aria-hidden="true"><img src="img/webp/cliente4.webp" alt=""></div>
         </section>
 
         <!-- SOBRE -->
         <section class="section about" id="sobre" aria-labelledby="sobre-title">
             <div class="container about__grid">
-                <div class="about__media">
-                    <div class="about__pattern" data-speed="0.15" aria-hidden="true"></div>
-                    <figure class="photo about__lead" data-speed="0.4">
-                        <img src="img/webp/cliente4.webp" alt="Degradê com barba modelada, visto de perfil"
-                            width="676" height="852" loading="lazy">
-                    </figure>
-                    <figure class="photo about__photo" data-speed="0.9">
-                        <img src="img/webp/cliente3.webp" alt="Barbeiro mostrando o corte finalizado de um cliente"
-                            width="671" height="850" loading="lazy">
-                    </figure>
+                <div class="about__content stack-md" data-reveal>
+                    <h2 class="section-title" id="sobre-title">Barbearia de bairro,<br><span class="accent">acabamento de primeira.</span></h2>
+                    <div class="stack-sm prose">
+                        <p>A Dichava Cortess fica no Parque Sampaio Viana, em Carapicuíba. São mais de 5 anos cortando
+                            cabelo de quem mora por aqui, da criançada no primeiro degradê a quem senta toda semana pra
+                            manter a régua em dia.</p>
+                        <p>Sem corte no automático: a gente conversa, entende o que você quer e só libera a cadeira
+                            quando tá do jeito certo.</p>
+                    </div>
+                    <p class="about__facts">
+                        <span><strong>5+</strong> anos de cadeira</span>
+                        <span><strong>500+</strong> clientes</span>
+                    </p>
                 </div>
 
-                <div class="about__content stack-md" data-reveal>
-                    <p class="eyebrow">Quem somos</p>
-                    <h2 class="section-title" id="sobre-title">Dichava<br><span class="accent">Cortess</span></h2>
-                    <div class="stack-sm prose">
-                        <p>Somos uma barbearia premium localizada no coração de São Paulo. Com mais de 5 anos de
-                            experiência, oferecemos cortes precisos, barba modelada e atendimento personalizado para
-                            cada cliente.</p>
-                        <p>Nosso compromisso é transformar sua visita em uma experiência única — do corte ao
-                            acabamento, cada detalhe é tratado com cuidado e profissionalismo.</p>
-                    </div>
-                    <dl class="stats">
-                        <div class="stat">
-                            <dt>Clientes atendidos</dt>
-                            <dd data-count="500" data-suffix="+">500+</dd>
+                <div class="about__media">
+                    <figure class="about__fig">
+                        <div class="photo">
+                            <img src="img/webp/cliente4.webp" alt="Degradê com barba modelada, visto de perfil"
+                                width="676" height="852" loading="lazy">
                         </div>
-                        <div class="stat">
-                            <dt>Anos de experiência</dt>
-                            <dd data-count="5" data-suffix="+">5+</dd>
+                        <figcaption>Degradê + barba</figcaption>
+                    </figure>
+                    <figure class="about__fig about__fig--low">
+                        <div class="photo">
+                            <img src="img/webp/cliente3.webp" alt="Criança fazendo joinha depois do corte finalizado"
+                                width="671" height="850" loading="lazy">
                         </div>
-                        <div class="stat">
-                            <dt>Satisfação garantida</dt>
-                            <dd data-count="100" data-suffix="%">100%</dd>
-                        </div>
-                    </dl>
+                        <figcaption>Corte infantil, aprovado</figcaption>
+                    </figure>
                 </div>
             </div>
         </section>
@@ -240,15 +221,12 @@
         <section class="section gallery" id="galeria" aria-labelledby="galeria-title">
             <div class="container stack-lg">
                 <header class="section-head section-head--split" data-reveal>
-                    <div class="stack-sm">
-                        <h2 class="section-title" id="galeria-title">Nossos Trabalhos</h2>
-                        <p class="lead">Cada corte é uma obra de arte</p>
-                    </div>
+                    <h2 class="section-title" id="galeria-title">Direto<br>da cadeira</h2>
                     <div class="filters" role="group" aria-label="Filtrar trabalhos">
-                        <button class="filter-btn is-active" type="button" data-filter="todos" aria-pressed="true">Todos</button>
-                        <button class="filter-btn" type="button" data-filter="corte" aria-pressed="false">Corte</button>
-                        <button class="filter-btn" type="button" data-filter="barba" aria-pressed="false">Barba</button>
-                        <button class="filter-btn" type="button" data-filter="navalha" aria-pressed="false">Navalha</button>
+                        <button class="filter-btn is-active" type="button" data-filter="todos" aria-pressed="true">Todos <span class="filter-btn__n">11</span></button>
+                        <button class="filter-btn" type="button" data-filter="corte" aria-pressed="false">Corte <span class="filter-btn__n">6</span></button>
+                        <button class="filter-btn" type="button" data-filter="barba" aria-pressed="false">Barba <span class="filter-btn__n">3</span></button>
+                        <button class="filter-btn" type="button" data-filter="navalha" aria-pressed="false">Navalha <span class="filter-btn__n">5</span></button>
                     </div>
                 </header>
 
@@ -310,12 +288,12 @@
                 </video>
             </div>
             <div class="container cta-band__inner stack-md" data-reveal>
-                <h2 class="cta-band__title" id="cta-title">Agende agora</h2>
-                <p class="lead">Garanta seu horário</p>
+                <h2 class="cta-band__title" id="cta-title">Bora<br>marcar?</h2>
+                <p class="lead">Chama no WhatsApp, escolhe o horário e pronto.</p>
                 <a class="btn btn--primary btn--lg"
                     href="https://wa.me/5511984952339?text=Olá!%20Vi%20o%20site%20e%20gostaria%20de%20agendar%20um%20horário."
                     target="_blank" rel="noopener">
-                    Agendar <i data-lucide="arrow-right" aria-hidden="true"></i>
+                    Chamar no WhatsApp <i data-lucide="arrow-right" aria-hidden="true"></i>
                 </a>
             </div>
         </section>
@@ -324,44 +302,36 @@
         <section class="section location" id="agendamento" aria-labelledby="local-title">
             <div class="container location__grid">
                 <div class="location__content stack-md" data-reveal>
-                    <p class="eyebrow">Visite-nos</p>
-                    <h2 class="section-title" id="local-title">Localização<br><span class="accent">&amp; Contato</span></h2>
+                    <h2 class="section-title" id="local-title">Onde<br><span class="accent">fica</span></h2>
 
-                    <ul class="info-list" role="list">
-                        <li class="info-item">
-                            <span class="info-item__icon"><i data-lucide="map-pin" aria-hidden="true"></i></span>
-                            <div>
-                                <p class="info-item__label">Endereço</p>
-                                <p class="info-item__value">Rua Trieste 20B, Parque Sampaio Viana – Carapicuíba, SP</p>
-                            </div>
-                        </li>
-                        <li class="info-item">
-                            <span class="info-item__icon"><i data-lucide="clock" aria-hidden="true"></i></span>
-                            <div>
-                                <p class="info-item__label">Horário</p>
-                                <p class="info-item__value">Segunda a Sábado: 9:00 - 20:00</p>
-                            </div>
-                        </li>
-                        <li class="info-item">
-                            <span class="info-item__icon"><i data-lucide="phone" aria-hidden="true"></i></span>
-                            <div>
-                                <p class="info-item__label">Telefone / WhatsApp</p>
-                                <p class="info-item__value"><a href="tel:+5511984952339">(11) 98495-2339</a></p>
-                            </div>
-                        </li>
-                    </ul>
+                    <dl class="info-list">
+                        <div class="info-row">
+                            <dt>Endereço</dt>
+                            <dd>Rua Trieste, 20B · Parque Sampaio Viana, Carapicuíba/SP</dd>
+                        </div>
+                        <div class="info-row">
+                            <dt>Horário</dt>
+                            <dd>Segunda a sábado, das 9h às 20h</dd>
+                        </div>
+                        <div class="info-row">
+                            <dt>WhatsApp</dt>
+                            <dd><a href="tel:+5511984952339">(11) 98495-2339</a></dd>
+                        </div>
+                        <div class="info-row">
+                            <dt>Instagram</dt>
+                            <dd><a href="https://www.instagram.com/dichavacortss/" target="_blank" rel="noopener">@dichavacortss</a></dd>
+                        </div>
+                    </dl>
 
                     <div class="location__actions">
                         <a class="btn btn--primary btn--lg"
                             href="https://wa.me/5511984952339?text=Olá!%20Vi%20o%20site%20e%20gostaria%20de%20agendar%20um%20horário."
                             target="_blank" rel="noopener">
                             <i data-lucide="message-circle" aria-hidden="true"></i>
-                            Agendar pelo WhatsApp
+                            Agendar no WhatsApp
                         </a>
-                        <a class="icon-btn" href="https://www.instagram.com/dichavacortss/" target="_blank"
-                            rel="noopener" aria-label="Instagram @dichavacortss">
-                            <i data-lucide="instagram" aria-hidden="true"></i>
-                        </a>
+                        <a class="link-arrow" href="https://www.google.com/maps/search/?api=1&amp;query=Rua+Trieste+20B+Parque+Sampaio+Viana+Carapicuiba+SP"
+                            target="_blank" rel="noopener">Abrir no Maps <i data-lucide="arrow-up-right" aria-hidden="true"></i></a>
                     </div>
                 </div>
 
@@ -376,42 +346,27 @@
 
     <!-- FOOTER -->
     <footer class="footer">
-        <div class="container footer__grid">
-            <div class="footer__brand stack-sm">
-                <img src="img/webp/logo.webp" alt="Dichava Cortess" width="88" height="84" loading="lazy">
-                <p>Barbearia premium em Carapicuíba. Corte, barba e navalha com excelência e estilo.</p>
-                <div class="footer__social">
-                    <a class="icon-btn" href="https://www.instagram.com/dichavacortss/" target="_blank" rel="noopener"
-                        aria-label="Instagram @dichavacortss"><i data-lucide="instagram" aria-hidden="true"></i></a>
-                    <a class="icon-btn"
-                        href="https://wa.me/5511984952339?text=Olá!%20Vi%20o%20site%20e%20gostaria%20de%20agendar%20um%20horário."
-                        target="_blank" rel="noopener" aria-label="WhatsApp (11) 98495-2339"><i data-lucide="message-circle" aria-hidden="true"></i></a>
-                </div>
-            </div>
-
-            <nav class="footer__col stack-sm" aria-label="Links do rodapé">
-                <h3 class="footer__title">Links</h3>
-                <ul role="list" class="footer__list">
-                    <li><a href="#inicio">Início</a></li>
+        <div class="container footer__top">
+            <img class="footer__logo" src="img/webp/logo.webp" alt="Dichava Cortess" width="88" height="84" loading="lazy">
+            <ul role="list" class="footer__contact">
+                <li>Rua Trieste, 20B · Carapicuíba/SP</li>
+                <li><a href="tel:+5511984952339">(11) 98495-2339</a></li>
+                <li><a href="https://www.instagram.com/dichavacortss/" target="_blank" rel="noopener">@dichavacortss</a></li>
+            </ul>
+            <nav aria-label="Links do rodapé">
+                <ul role="list" class="footer__nav">
                     <li><a href="#servicos">Serviços</a></li>
-                    <li><a href="#sobre">Sobre Nós</a></li>
-                    <li><a href="#galeria">Galeria</a></li>
-                    <li><a href="#agendamento">Agendamento</a></li>
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#galeria">Trabalhos</a></li>
+                    <li><a href="#agendamento">Onde fica</a></li>
                 </ul>
             </nav>
-
-            <div class="footer__col stack-sm">
-                <h3 class="footer__title">Contato</h3>
-                <ul role="list" class="footer__list footer__list--icons">
-                    <li><i data-lucide="map-pin" aria-hidden="true"></i><span>Rua Trieste 20B, Parque Sampaio Viana – Carapicuíba, SP</span></li>
-                    <li><i data-lucide="phone" aria-hidden="true"></i><a href="tel:+5511984952339">(11) 98495-2339</a></li>
-                    <li><i data-lucide="instagram" aria-hidden="true"></i><a href="https://www.instagram.com/dichavacortss/" target="_blank" rel="noopener">@dichavacortss</a></li>
-                    <li><i data-lucide="mail" aria-hidden="true"></i><a href="mailto:contato@dichavacortess.com">contato@dichavacortess.com</a></li>
-                </ul>
-            </div>
+        </div>
+        <div class="container">
+            <p class="footer__word" aria-hidden="true">Dichava Cortess</p>
         </div>
         <div class="container footer__bottom">
-            <p>© <span data-year>2026</span> Dichava Cortess. Todos os direitos reservados.</p>
+            <p>© <span data-year>2026</span> Dichava Cortess · Carapicuíba/SP</p>
         </div>
     </footer>
 
