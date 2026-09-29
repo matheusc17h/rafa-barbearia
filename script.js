@@ -335,12 +335,26 @@
       });
     });
 
-    gsap.set("[data-reveal-item]", { autoAlpha: 0, y: 32 });
-    ScrollTrigger.batch("[data-reveal-item]", {
-      start: "top 90%",
-      once: true,
-      onEnter: (batch) =>
-        gsap.to(batch, { autoAlpha: 1, y: 0, duration: 0.8, ease: "power3.out", stagger: 0.08, clearProps: "transform" }),
+    // ---------- 5b. Serviços: cada card entra quando metade dele aparece ----------
+    // Descendo, o card sobe e o ícone "estala"; subindo, o efeito volta e ele some.
+    const serviceGrid = document.querySelector(".services__grid");
+    const cols = serviceGrid
+      ? getComputedStyle(serviceGrid).gridTemplateColumns.split(" ").length
+      : 1;
+
+    gsap.utils.toArray("[data-reveal-item]").forEach((card, i) => {
+      const icon = card.querySelector(".service-card__icon");
+      const num = card.querySelector(".service-card__num");
+      // cards da mesma linha (desktop) entram em sequência, não todos juntos
+      const lag = (i % cols) * 0.12;
+
+      gsap
+        .timeline({
+          scrollTrigger: { trigger: card, start: "center bottom", toggleActions: "play none none reverse" },
+        })
+        .from(card, { autoAlpha: 0, y: 80, scale: 0.92, duration: 0.7, ease: "back.out(1.6)" }, lag)
+        .from(icon, { scale: 0, rotation: -120, duration: 0.6, ease: "back.out(2.2)" }, lag + 0.15)
+        .from(num, { autoAlpha: 0, x: 24, duration: 0.5, ease: "power3.out" }, lag + 0.2);
     });
 
     // ---------- 6. Números contando (comunica volume, uma vez) ----------

@@ -764,7 +764,7 @@ ul[role="list"] { list-style: none; }
   border-radius: var(--radius-card);
   transition:
     border-color var(--t-micro) var(--ease-out),
-    transform var(--t-micro) var(--ease-out);
+    translate var(--t-micro) var(--ease-out);
 }
 
 .service-card__top {
@@ -837,7 +837,8 @@ ul[role="list"] { list-style: none; }
 .service-card:hover,
 .service-card:focus-within {
   border-color: rgb(224 168 96 / 0.55);
-  transform: translateY(-4px);
+  /* `translate` (não `transform`): o GSAP anima o transform na entrada */
+  translate: 0 -4px;
 }
 
 .service-card:hover .service-card__icon,
