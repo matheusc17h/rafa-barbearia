@@ -82,6 +82,8 @@ html {
   scroll-behavior: smooth;
   scroll-padding-top: var(--header-h);
   -webkit-text-size-adjust: 100%;
+  /* sem o flash azul do navegador ao tocar em links/botões no celular */
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
